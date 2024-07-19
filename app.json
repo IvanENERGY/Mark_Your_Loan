@@ -1,0 +1,44 @@
+{
+  "expo": {
+    "name": "Mark_Your_Loan_V1",
+    "slug": "MarkYourLoanV1",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/app_icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/app_splash_with_title.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/app_adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.ivanchantf.MarkYourLoan"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "usesCleartextTraffic": true
+          },
+          "ios": {}
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "12842c09-66a8-49e2-b51a-c3c5a9e1502a"
+      }
+    }
+  }
+}

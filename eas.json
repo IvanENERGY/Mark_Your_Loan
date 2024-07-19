@@ -1,0 +1,14 @@
+{
+    "build": {
+        "dev": {
+            "android": {
+                "buildType": "apk"
+            },
+            "ios": {
+                "buildConfiguration": "Debug"
+            }
+        },
+        "preview": {},
+        "prod": {}
+    }
+  }
