@@ -3,7 +3,7 @@ This application is avaliable on <a href="">Google Play Store</a> and <a href=""
 <p>[screenshots/play/feature_graphics.png]</p>
 
 
-<img src="https://github.com/user-attachments/assets/bab8b946-4f09-467e-9041-fa2cf2f083ad"/>
+<img src="https://github.com/user-attachments/assets/925b72a1-bd33-46c7-9294-2579ea77c3ee"/>
 <p>Mark Your Loan is an application which allows users to record the amount they borrow from friends and the amount they help friends to pay. </p>
 <p>The application is simple and easy to use,  users can insert borrowing records and helping records, view the list of records at anytime. They can also select a specific friends to see the records related to that friend. </p>
 <p>The application supports English and Chinese.</p>
@@ -20,35 +20,35 @@ This application is avaliable on <a href="">Google Play Store</a> and <a href=""
 <p>[screenshots/play/1.png]</p>
 
 
-<img src="https://github.com/user-attachments/assets/afb939cf-98e9-4e9f-a766-27dfc4fe125c"/>
+<img src="https://github.com/user-attachments/assets/7e73514a-922c-4973-a87d-ca7b6ff9b5e0"/>
 <p>[screenshots/play/2.png]</p>
 
 
-<img src="https://github.com/user-attachments/assets/3765f711-8d31-4bdb-b5b7-44f0026aa109"/>
+<img src="https://github.com/user-attachments/assets/c082f8e9-3a67-45c6-a099-dcb27b880ba6"/>
 <p>[screenshots/play/3.png]</p>
 
 
-<img src="https://github.com/user-attachments/assets/7fc8985c-e797-401b-9987-312cc931a691"/>
+<img src="https://github.com/user-attachments/assets/17d12c8f-5ac7-492d-acf7-fa1ddf6516cc"/>
 <p>[screenshots/play/4.png]</p>
 
 
-<img src="https://github.com/user-attachments/assets/3008f350-f154-4d2a-b50c-abaf8e316349"/>
+<img src="https://github.com/user-attachments/assets/d9afbcbf-b422-4fcc-a34c-bb4e9310e898"/>
 <p>[screenshots/play/5.png]</p>
 
 
-<img src="https://github.com/user-attachments/assets/0adc3b45-290e-400b-b7ac-6d30d1dbb3f9"/>
+<img src="https://github.com/user-attachments/assets/970fa8eb-a782-4643-bae9-9999800c3c7f"/>
 <p>[screenshots/play/6.png]</p>
 
 
-<img src="https://github.com/user-attachments/assets/39c71258-eeb7-4055-9495-b51ee6ca07cb"/>
+<img src="https://github.com/user-attachments/assets/48271781-3e2d-4f6e-af37-213f9e100d0f"/>
 <p>[screenshots/play/7.png]</p>
 
 
-<img src="https://github.com/user-attachments/assets/8a49df22-d48e-4f67-b9c1-7e33ae5c03d3"/>
+<img src="https://github.com/user-attachments/assets/3e97085e-3fe9-438d-8581-59d24a4cd812"/>
 <p>[screenshots/play/8.png]</p>
 
 
-<img src="https://github.com/user-attachments/assets/35194254-7808-4de8-8cda-b76a4d2a2bdf"/>
+<img src="https://github.com/user-attachments/assets/afc93d64-b401-4848-898b-e7c80103e64d"/>
 <h1>&#128640;Notes on building android (apk/aab) on window wsl (Linux  ubuntu) LOCALLY</h1>
 
 <ol>
