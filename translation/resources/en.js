@@ -87,6 +87,8 @@ export default {
     NoRecordsFound:"No Records Found",
     //APP SETTINGS Screen
     AppSettings:"App Settings",
-    LanguageSettings:"Language Setting"
+    LanguageSettings:"Language Setting",
+    Findmeat:"Find me at",
+    copyright:"Copyright © 2024 Ivan Chan Tsz Fung | All rights reserved"
 
    };

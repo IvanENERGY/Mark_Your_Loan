@@ -84,6 +84,9 @@ export default {
     NoRecordsFound:"沒有任何記錄",
     //APP SETTINGS Screen
     AppSettings:"設定",
-    LanguageSettings:"語言設定"
+    LanguageSettings:"語言設定",
+    
+    Findmeat:"聯絡我",
+    copyright:"© 2024 Ivan Chan Tsz Fung | 版權所有"
 
    };

@@ -1,4 +1,4 @@
-import { StyleSheet ,Modal,View,Text, Pressable,TextInput,Button,KeyboardAvoidingView, ScrollView,Platform} from "react-native"
+import { StyleSheet ,Modal,View,Text, Pressable,TextInput,Button,KeyboardAvoidingView, ScrollView,Platform, Linking} from "react-native"
 import { AntDesign } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { useContext, useEffect, useState } from "react";
@@ -70,8 +70,13 @@ export const AppSettingModal=(props)=>{
                         />
 
                     </View>
+                     <View style={styles.footerContainer}>
+                        <Text style={styles.footerText}>{t('copyright')} </Text>
+                        <Text style={styles.footerText} onPress={()=>Linking.openURL('http://ivanenergy.github.io')}>{t('Findmeat')}: http://ivanenergy.github.io </Text>
 
+                    </View>
                 </View>
+            
             </Modal>
    
     )
@@ -101,7 +106,7 @@ const styles = StyleSheet.create({
         ),
         padding:10,
         alignSelf:'center',
-        justifyContent:'flex-start'
+        justifyContent:'space-between'
       
     },
      titleContainer:{
@@ -120,7 +125,20 @@ const styles = StyleSheet.create({
     itemContainer:{
         flexDirection:'row',
         justifyContent:"space-between",
-        margin:10
+        marginHorizontal:10,
+        alignItems:'center',
+        marginVertical:50,
+     
+     
+    },
+    footerContainer:{
+        
+        margin:0,
+        padding:0,
+        alignItems:'flex-end'
+    },
+    footerText:{
+        fontSize:10
     }
 
 
