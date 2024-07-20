@@ -4,12 +4,13 @@ import {Picker} from '@react-native-picker/picker';
 import * as SQLite from 'expo-sqlite';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { useEffect, useState } from "react";
+import { useTranslation } from 'react-i18next';
 export const AddHelpPayRecordModal=(props)=>{
     const [selectedFdId, setSelectedFdId] = useState('');
     const [LiFriends,setLiFriends]=useState([]);
     const [amount,setAmount]=useState('');
     const [comments,setComments]=useState('');
-
+    const {t}=useTranslation();
     const[errors,setErrors]=useState({});
 
     useEffect(()=>{
@@ -31,10 +32,10 @@ export const AddHelpPayRecordModal=(props)=>{
     const validateForm=()=>{    
         let err={};
         if(amount===''){
-            err.amount='Error: Amount cannot be empty.';
+            err.amount=t("ErrorAmountcannotbeempty");
         }
         if(selectedFdId===''){
-            err.selectedFdId='Error: Add a friend from the main page First.';
+            err.selectedFdId=t("ErrorAddafriendfromthemainpagefirst");
         }
         setErrors(err);
 
@@ -75,14 +76,14 @@ export const AddHelpPayRecordModal=(props)=>{
                     <ScrollView>
                     
                     <View style={styles.titleContainer}>
-                        <Text style={[styles.instructionText,styles.modalTitleText]}>ADD HELP-PAY RECORD</Text>
+                        <Text style={[styles.instructionText,styles.modalTitleText]}>{t("ADDHELPPAYRECORD")}</Text>
                         <Pressable onPress={props.closeModal}>
                             <Text style={styles.closeModalCross}><AntDesign name="closecircle" size={35} color="red" /></Text>
                         </Pressable>
                     </View>
                     <Image source={require("../assets/img/helpPay.png")} style={styles.icon} resizeMode="contain"/>
                     
-                        <Text style={styles.instructionText}><FontAwesome6 name="user-large" size={20} color="black" />Paid For: </Text>
+                        <Text style={styles.instructionText}><FontAwesome6 name="user-large" size={20} color="black" />{t("PaidFor")}:</Text>
                         <Picker
                             selectedValue={selectedFdId}
                             onValueChange={(itemValue, itemIndex) =>{
@@ -91,7 +92,7 @@ export const AddHelpPayRecordModal=(props)=>{
                             }
                             }
                             style={styles.picker}
-                            placeholder="Select A Friend"
+                            placeholder={t("SelectAFriend")}
                         >
                              {
                                 LiFriends.map(item=>
@@ -107,15 +108,15 @@ export const AddHelpPayRecordModal=(props)=>{
 
                         </Picker>
                         {errors.selectedFdId?<Text style={styles.errorText}>{errors.selectedFdId}</Text>:null}       
-                        <Text style={styles.instructionText}><FontAwesome6 name="sack-dollar" size={20} color="black" />Amount: </Text>
-                        <TextInput style={styles.input} placeholder="Enter Amount Here..." placeholderTextColor="#bbbbbb"  keyboardType="decimal-pad" value={amount} onChangeText={setAmount}/>
+                        <Text style={styles.instructionText}><FontAwesome6 name="sack-dollar" size={20} color="black" />{t("Amount")}:</Text>
+                        <TextInput style={styles.input} placeholder={t("EnterAmountHere")} placeholderTextColor="#bbbbbb"  keyboardType="decimal-pad" value={amount} onChangeText={setAmount}/>
 
                         {errors.amount?<Text style={styles.errorText}>{errors.amount}</Text>:null}        
                     <View style={{opacity:0.6}}> 
-                        <Text style={styles.instructionText}>Comments: (optional) </Text>
-                        <TextInput style={[styles.input,{height:100,verticalAlign:"top"}]} placeholder={'(eg. Dinner on 18July at KFC)'} placeholderTextColor="#bbbbbb"  autoCapitalize="sentences" autoCorrect={false} maxLength={50} value={comments} onChangeText={setComments} />
+                        <Text style={styles.instructionText}>{t("Commentsoptional")} </Text>
+                        <TextInput style={[styles.input,{height:100,verticalAlign:"top"}]} placeholder={t("egDinneron18JulyatKFC")} placeholderTextColor="#bbbbbb"  autoCapitalize="sentences" autoCorrect={false} maxLength={50} value={comments} onChangeText={setComments} />
                     </View>
-                    <Button title={"ADD THIS HELP-PAY RECORD!"} color="green" onPress={onSubmitHandler} /> 
+                    <Button title={t("ADDTHISHELPPAYRECORD")} color="green" onPress={onSubmitHandler} /> 
                    </ScrollView>
                    </KeyboardAvoidingView>
                 </View>       

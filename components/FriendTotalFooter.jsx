@@ -3,7 +3,7 @@ import { StyleSheet, View,Text,Platform,Button } from "react-native";
 import { MaterialIcons } from '@expo/vector-icons';
 import { dbTableContext } from "../App";
 
-
+import { useTranslation } from 'react-i18next';
 export const FriendTotalFooter=(props)=>{
     const [borrowAmount,setBorrowAmount]=useState(0);
     const[helpPayAmount,setHelpPayAmount]=useState(0);
@@ -23,7 +23,7 @@ export const FriendTotalFooter=(props)=>{
         setHelpPayAmount(hTotal);
     },[liBorrows,liHelpPays])
 
-
+    const {t}=useTranslation();
     return(
 
         <View style={styles.friendFooterContainer}>
@@ -31,7 +31,7 @@ export const FriendTotalFooter=(props)=>{
             <View style={styles.friendContainerItem}>
             
                  
-                <Text style={styles.nameTxt}>TOTAL</Text>
+                <Text style={styles.nameTxt}>{t('TOTAL')}</Text>
             </View>
             <View style={styles.friendContainerItem}>
                    <Text style={styles.borrowAmountTxt}>{borrowAmount}</Text>

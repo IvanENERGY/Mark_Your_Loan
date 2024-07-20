@@ -1,19 +1,23 @@
-import { NavigationContainer} from '@react-navigation/native'
+import { DarkTheme, NavigationContainer} from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Entypo from '@expo/vector-icons/Entypo'
 import { FontAwesome5 } from '@expo/vector-icons';
 import { BorrowScreen } from './screens/BorrowScreen'
 import { FriendsScreen } from './screens/FriendsScreen'
 import { HelpPayScreen } from './screens/HelpPayScreen'
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import { FriendNavStack } from './FriendNavStack';
-import { Pressable, Text, View } from 'react-native';
-
-
+import { Pressable,  Text, View } from 'react-native';
+import { Switch } from 'react-native-switch';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const Tab= createBottomTabNavigator()
 export const dbTableContext=createContext();
-
+export const appContext=createContext();
+import './translation'
 import 'react-native-reanimated'
+import { useTranslation } from 'react-i18next';
+import i18n from "i18next";
+
 export default  function App(){
 
 
@@ -21,9 +25,43 @@ const [liFriends,setLiFriends]=useState([]);
 const [liBorrows,setLiBorrows]=useState([]);
 const [liHelpPays,setLiHelpPays]=useState([]);
 
+const [isEn,setIsEn]=useState(true);
+const {t}=useTranslation();
+
+useEffect(()=>{
+  (async()=>{
+    try{
+      const value=await AsyncStorage.getItem("isEn");
+      if(value!==null){
+        //isEn stored before
+        if(value==='0'){
+          console.log("lang record is0")
+          setIsEn(false);
+          i18n.changeLanguage("cn");
+        }
+        else if (value==='1'){
+          console.log("lang record is1")
+          setIsEn(true);
+          i18n.changeLanguage("en");
+        }
+      }
+      else{
+        console.log("lang record not found")
+        setIsEn(true);
+        i18n.changeLanguage("en");
+      }
+
+    }catch(err){
+      console.log(err)
+    }
+  })();
+},[])
+
 
 return(
   <dbTableContext.Provider value={[liFriends,setLiFriends,liBorrows,setLiBorrows,liHelpPays,setLiHelpPays]}>
+  <appContext.Provider value={[isEn,setIsEn]}>
+
   <View style={{flex:1}}>
   <NavigationContainer >
  
@@ -44,12 +82,7 @@ return(
         fontSize:25
       },
       headerTintColor:"white",
-      // headerRight:()=>
-      //   (
-      //   <Pressable style={{padding:10,margin:5}} >
-      //     <Entypo name="info-with-circle" size={30} color="white" />
-      //   </Pressable>
-      //   )
+     
       
       }
        
@@ -59,23 +92,31 @@ return(
     >
       
       <Tab.Screen name="Borrow" component={BorrowScreen}  options={{
-        tabBarLabel:"Borrow From Friends",
+        tabBarLabel:t('BorrowFromFriends'),
         tabBarIcon:({color})=><Entypo name="arrow-bold-down" size={24} color={color}/>,
-        headerTitle:"⬇️ Borrow From Friends",
+        headerTitle:`⬇️${t('BorrowFromFriends')}`,
+        headerTitleStyle:{
+          fontSize:20
+        },
         tabBarActiveTintColor:"red"
 
       }}/>
       <Tab.Screen name="Friends" component={FriendNavStack} options={{
-        tabBarLabel:"My Friends",
-        tabBarIcon:({color})=><FontAwesome5 name="user-friends" size={24} color={color} />,
+        tabBarLabel:(t("MyFriends")),
+        tabBarIcon:({color})=><FontAwesome5 name="user-friends" size={24} color={color} />
+
+        ,
         headerTitle:"👥 My Friends",
         headerShown:false
 
       }}/>
       <Tab.Screen name="HelpPay" component={HelpPayScreen} options={{
-        tabBarLabel:"Help Friends Pay",
+        tabBarLabel:t('HelpFriendsPay'),
         tabBarIcon:({color})=><Entypo name="arrow-bold-up" size={24} color={color}/>,
-        headerTitle:"⬆️ Help Friends Pay",
+        headerTitle:`⬆️${t('HelpFriendsPay')}`,
+        headerTitleStyle:{
+          fontSize:20
+        },
         tabBarActiveTintColor:"green",
        
       }}/> 
@@ -85,6 +126,7 @@ return(
   </NavigationContainer>
  
   </View>
+  </appContext.Provider>
   </dbTableContext.Provider>
 )
 }

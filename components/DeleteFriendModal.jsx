@@ -5,10 +5,11 @@ import { Platform,Button,Modal,View,Text,StyleSheet,Pressable ,Alert} from "reac
 import {Picker} from '@react-native-picker/picker';
 import { dbTableContext } from "../App";
 import * as SQLite from 'expo-sqlite';
+import { useTranslation } from 'react-i18next';
 export const DeleteFriendModal=(props)=>{
     const [liFriends,setLiFriends,liBorrows,setLiBorrows,liHelpPays,setLiHelpPays]=useContext(dbTableContext);
     const [selectedFdId,setSelectedFdId]=useState("");
-
+    const {t}=useTranslation();
     useEffect(()=>{
 
         (async()=>{
@@ -35,14 +36,14 @@ export const DeleteFriendModal=(props)=>{
             }
         }
 
-        Alert.alert('WARNING', `Are You Sure you want to delete ${deletedFdName}?\n\nALL related borrows and helping records would be deleted!\n\n (THIS CANNOT BE UNDONE)
+        Alert.alert(t('WARNING'), `${t('Areyousureyouwanttodelete')} ${deletedFdName}?\n\n${t('Allrelatedborrowsandhelpingrecordwouldbedeleted')}!\n\n ${t('THISCANNOTBEUNDONE')}
             `, [
             {
-              text: 'Cancel',
+              text: t('CANCEL'),
               onPress: () => console.log('Cancel Pressed'),
               style: 'cancel',
             },
-            {text: 'YES', onPress: () =>deleteOp() },
+            {text: t('YES'), onPress: () =>deleteOp() },
           ]);
 
 
@@ -90,7 +91,7 @@ export const DeleteFriendModal=(props)=>{
                 <View style={styles.mainContainer}> 
                     
                     <View style={styles.titleContainer}>
-                        <Text style={[styles.instructionText,styles.modalTitleText]}>DELETE FRIEND</Text>
+                        <Text style={[styles.instructionText,styles.modalTitleText]}>{t('DELETEFRIEND')}</Text>
                         <Pressable onPress={props.closeModal}>
                             <Text style={styles.closeModalCross}><AntDesign name="closecircle" size={35} color="red" /></Text>
                         </Pressable>
@@ -98,7 +99,7 @@ export const DeleteFriendModal=(props)=>{
                     
                     
                     
-                        <Text style={styles.instructionText}><AntDesign name="deleteuser" size={24} color="black"  />Who do you want to delete? </Text>
+                        <Text style={styles.instructionText}><AntDesign name="deleteuser" size={24} color="black"  />{t('Whodoyouwanttodelete')} </Text>
                         <Picker
                             selectedValue={selectedFdId}
                             onValueChange={(itemValue, itemIndex) =>{
@@ -107,7 +108,7 @@ export const DeleteFriendModal=(props)=>{
                             }
                             }
                             style={styles.picker}
-                            placeholder="Select A Friend"
+                            placeholder={t('SelectAFriend')}
                         >
                             {
                                 liFriends.map(item=>
@@ -118,7 +119,7 @@ export const DeleteFriendModal=(props)=>{
                     
                      
                         
-                    <Button title="DELETE SELECTED FRIEND" color="red" onPress={onSubmitHandler} disabled={selectedFdId===""}/>
+                    <Button title={t('DELETESELECTEDFRIEND')} color="red" onPress={onSubmitHandler} disabled={selectedFdId===""}/>
                 
                 </View>       
                

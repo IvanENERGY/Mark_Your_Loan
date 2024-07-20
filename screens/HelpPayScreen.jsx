@@ -6,12 +6,13 @@ import * as SQLite from 'expo-sqlite';
 import { HelpPayTotalFooter } from "../components/HelpPayTotalFooter";
 import { HelpPay } from "../components/HelpPay";
 import { dbTableContext } from "../App";
-
+import { useTranslation } from 'react-i18next';
 export const HelpPayScreen=()=>{
     const [isHelpPayRecordModalVisible,setIsHelpPayRecordModalVisible]=useState(false);
     // const [liHelpPays,setLiHelpPays]=useState([]);
     const [totalAmount,setTotalAmount]=useState(0);
     const [liFriends,setLiFriends,liBorrows,setLiBorrows,liHelpPays,setLiHelpPays]=useContext(dbTableContext);
+    const {t}=useTranslation();
     useEffect(()=>{
         (async()=>{
             try{
@@ -53,17 +54,17 @@ export const HelpPayScreen=()=>{
         const db = SQLite.openDatabaseSync('example.db');
         delItemRelatedFdObj =db.getFirstSync('SELECT * FROM friends WHERE id=?',delItem.linkedFriendId);
 
-        Alert.alert('Are You Sure you want to delete the following record?', `
-            \n Friend Name: ${delItemRelatedFdObj.name}
-            \n Amount: ${delItem.amount}
-            \n Comment:${delItem.comment?delItem.comment:"N/A"}
+        Alert.alert(t('Areyousureyouwanttodeletethefollowingrecord'), `
+            \n ${t('Name')}: ${delItemRelatedFdObj.name}
+            \n ${t('Amount')}: ${delItem.amount}
+            \n ${t('Comment')}:${delItem.comment?delItem.comment:t('NA')}
             `, [
             {
-              text: 'Cancel',
+              text: t('CANCEL'),
               onPress: () => console.log('Cancel Pressed'),
               style: 'cancel',
             },
-            {text: 'YES', onPress: () =>deleteOp() },
+            {text: t('YES'), onPress: () =>deleteOp() },
           ]);
 
 
@@ -81,14 +82,14 @@ export const HelpPayScreen=()=>{
             }
             
         });
-        Alert.alert('WARNING', `Are You Sure you want to delete ALL Helping records?\n\n (THIS CANNOT BE UNDONE)
+        Alert.alert(t('WARNING'), `${t('AreyousureyouwanttodeleteALLHelpingRecords')}?\n\n ${t('THISCANNOTBEUNDONE')}
             `, [
             {
-              text: 'Cancel',
+              text: t('CANCEL'),
               onPress: () => console.log('Cancel Pressed'),
               style: 'cancel',
             },
-            {text: 'YES', onPress: () =>deleteOp() },
+            {text:t('YES'), onPress: () =>deleteOp() },
           ]);
 
     }
@@ -100,10 +101,10 @@ export const HelpPayScreen=()=>{
                 </Text> */}
 
                 <View style={styles.btnContainer}>
-                    <Button title=">ADD HELPING RECORDS<" color={Platform.OS==="ios"?"#ffffff":"#000000"}   onPress={()=>setIsHelpPayRecordModalVisible(true)}/>
+                    <Button title={">"+t('ADDHELPINGRECORDS')+"<"} color={Platform.OS==="ios"?"#ffffff":"#000000"}   onPress={()=>setIsHelpPayRecordModalVisible(true)}/>
                 </View>
                 {liHelpPays.length!==0?<Text style={styles.listGuideTxt}>
-                    Your Helping history are shown below:
+                    {t('YourHelpinghistoryareshownbelow')}:
                 </Text>:
                 <HelpingListEmpty />}
                 <FlatList

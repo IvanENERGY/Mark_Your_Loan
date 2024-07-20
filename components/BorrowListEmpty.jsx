@@ -1,9 +1,10 @@
 import { Text ,StyleSheet,View} from "react-native"
-
+import { useTranslation } from 'react-i18next';
 export const BorrowListEmpty=()=>{
+    const {t}=useTranslation();
     return(
         <View style={styles.container}>
-         <Text style={{textAlign:'center',fontSize:20,marginTop:20}}>No borrow records are found,{'\n\n'} You can add one by pressing button above</Text>
+         <Text style={{textAlign:'center',fontSize:20,marginTop:20}}>{t('Noborrowrecordsarefound')},{'\n\n'} {t('Youcanaddonebypressingbuttonabove')}</Text>
         </View>
     )
 }

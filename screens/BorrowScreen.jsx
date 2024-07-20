@@ -6,7 +6,7 @@ import { Borrow } from "../components/Borrow";
 import { BorrowTotalFooter } from "../components/BorrowTotalFooter";
 import { BorrowListEmpty } from "../components/BorrowListEmpty";
 import { dbTableContext } from "../App";
-
+import { useTranslation } from 'react-i18next';
 
 
 export const BorrowScreen=()=>{
@@ -14,7 +14,7 @@ export const BorrowScreen=()=>{
     // const [liBorrows,setLiBorrows]=useState([]);
     const [totalAmount,setTotalAmount]=useState(0);
     const [liFriends,setLiFriends,liBorrows,setLiBorrows,liHelpPays,setLiHelpPays]=useContext(dbTableContext);
-
+    const {t}=useTranslation();
     useEffect(()=>{
         (async()=>{
             try{
@@ -56,17 +56,17 @@ export const BorrowScreen=()=>{
         const db = SQLite.openDatabaseSync('example.db');
         delItemRelatedFdObj =db.getFirstSync('SELECT * FROM friends WHERE id=?',delItem.linkedFriendId);
 
-        Alert.alert('Are You Sure you want to delete the following record?', `
-            \n Name: ${delItemRelatedFdObj.name}
-            \n Amount: ${delItem.amount}
-            \n Comment:${delItem.comment?delItem.comment:"N/A"}
+        Alert.alert(t("Areyousureyouwanttodeletethefollowingrecord"), `
+            \n ${t("Name")}: ${delItemRelatedFdObj.name}
+            \n ${t("Amount")}: ${delItem.amount}
+            \n ${t("Comment")}:${delItem.comment?delItem.comment:t("NA")}
             `, [
             {
-              text: 'Cancel',
+              text: t("CANCEL"),
               onPress: () => console.log('Cancel Pressed'),
               style: 'cancel',
             },
-            {text: 'YES', onPress: () =>deleteOp() },
+            {text: t("YES"), onPress: () =>deleteOp() },
           ]);
 
 
@@ -84,14 +84,14 @@ export const BorrowScreen=()=>{
             }
             
         });
-        Alert.alert('WARNING', `Are You Sure you want to delete ALL Borrow record?\n\n (THIS CANNOT BE UNDONE)
+        Alert.alert(t('WARNING'), `${t('AreyousureyouwanttodeleteALLBorrowRecords')}\n\n ${t('THISCANNOTBEUNDONE')}
             `, [
             {
-              text: 'Cancel',
+              text: t("CANCEL"),
               onPress: () => console.log('Cancel Pressed'),
               style: 'cancel',
             },
-            {text: 'YES', onPress: () =>deleteOp() },
+            {text: t("YES"), onPress: () =>deleteOp() },
           ]);
 
     }
@@ -103,12 +103,12 @@ export const BorrowScreen=()=>{
                 </Text> */}
 
                 <View style={styles.btnContainer}>
-                    <Button title=">ADD BORROW RECORDS<" color={Platform.OS==="ios"?"#ffffff":"#000000"}   onPress={()=>setIsAddBorrowRecordModalVisible(true)}/>
+                    <Button title={">"+t('ADDBORROWRECORDS')+"<"} color={Platform.OS==="ios"?"#ffffff":"#000000"}   onPress={()=>setIsAddBorrowRecordModalVisible(true)}/>
                 </View>
                 
                 
                 {liBorrows.length!==0?<Text style={styles.listGuideTxt}>
-                    Your borrow history are shown below:
+                    {t('Yourborrowhistoryareshownbelow')}:
                 </Text>:
                 <BorrowListEmpty/>}
                 <FlatList

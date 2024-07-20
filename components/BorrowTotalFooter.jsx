@@ -1,11 +1,12 @@
 import { StyleSheet, View,Text,Platform,Button } from "react-native";
-
+import { useTranslation } from 'react-i18next';
 export const BorrowTotalFooter=(props)=>{
+    const {t}=useTranslation();
     return(
 
         <View style={styles.borrowFooterContainer}>
             <View style={{flex:3}}>
-                <Text style={styles.txt}>BORROW TOTAL:</Text>
+                <Text style={styles.txt}>{t('BORROWTOTAL')}:</Text>
             </View>
             <View style={{flex:3}}>
                 <Text style={styles.txt}>${props.amount}</Text>

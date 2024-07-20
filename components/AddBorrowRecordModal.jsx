@@ -4,13 +4,14 @@ import { FontAwesome6 } from '@expo/vector-icons';
 import {Picker} from '@react-native-picker/picker';
 import { useEffect, useState } from "react";
 import * as SQLite from 'expo-sqlite';
+import { useTranslation } from 'react-i18next';
 export const AddBorrowRecordModal=(props)=>{
     const [selectedFdId, setSelectedFdId] = useState('');
     const [LiFriends,setLiFriends]=useState([]);
     const [amount,setAmount]=useState('');
     const [comments,setComments]=useState('');
 
-
+    const {t}=useTranslation();
     const[errors,setErrors]=useState({});
     useEffect(()=>{
         setErrors({});
@@ -74,14 +75,14 @@ export const AddBorrowRecordModal=(props)=>{
                     <ScrollView>
                     
                     <View style={styles.titleContainer}>
-                        <Text style={[styles.instructionText,styles.modalTitleText]}>ADD BORROWING RECORD</Text>
+                        <Text style={[styles.instructionText,styles.modalTitleText]}>{t("ADDBORROWINGRECORD")}</Text>
                         <Pressable onPress={props.closeModal}>
                             <Text style={styles.closeModalCross}><AntDesign name="closecircle" size={35} color="red" /></Text>
                         </Pressable>
                     </View>
                     <Image source={require("../assets/img/borrow.png")} style={styles.icon} resizeMode="contain"/>
                     
-                        <Text style={styles.instructionText}><FontAwesome6 name="user-large" size={20} color="black" />Borrow From: </Text>
+                        <Text style={styles.instructionText}><FontAwesome6 name="user-large" size={20} color="black" />{t("BorrowFrom")}: </Text>
                         <Picker
                             selectedValue={selectedFdId}
                             onValueChange={(itemValue, itemIndex) =>{
@@ -105,16 +106,16 @@ export const AddBorrowRecordModal=(props)=>{
 
                         </Picker>
                         {errors.selectedFdId?<Text style={styles.errorText}>{errors.selectedFdId}</Text>:null}
-                        <Text style={styles.instructionText}><FontAwesome6 name="sack-dollar" size={20} color="black" />Amount: </Text>
-                        <TextInput style={styles.input} placeholder="Enter Amount Here..." placeholderTextColor="#bbbbbb" keyboardType="decimal-pad"  value={amount} onChangeText={setAmount}/>
+                        <Text style={styles.instructionText}><FontAwesome6 name="sack-dollar" size={20} color="black" />{t("Amount")}: </Text>
+                        <TextInput style={styles.input} placeholder={t("EnterAmountHere")} placeholderTextColor="#bbbbbb" keyboardType="decimal-pad"  value={amount} onChangeText={setAmount}/>
 
                         {errors.amount?<Text style={styles.errorText}>{errors.amount}</Text>:null}
                    
                     <View style={{opacity:0.6}}> 
-                        <Text style={styles.instructionText}>Comments: (optional) </Text>
-                        <TextInput style={[styles.input,{height:100,verticalAlign:"top"}]} placeholder={'(eg. Rent in July)'} placeholderTextColor="#bbbbbb"  autoCapitalize="sentences" autoCorrect={false} maxLength={50} value={comments} onChangeText={setComments}/>
+                        <Text style={styles.instructionText}>{t("Commentsoptional")} </Text>
+                        <TextInput style={[styles.input,{height:100,verticalAlign:"top"}]} placeholder={t('egRentinJuly')} placeholderTextColor="#bbbbbb"  autoCapitalize="sentences" autoCorrect={false} maxLength={50} value={comments} onChangeText={setComments}/>
                     </View>
-                    <Button title="ADD THIS BORROW RECORD!" color="red" onPress={onSubmitHandler}/>
+                    <Button title={t("ADDTHISBORROWRECORD")+"!"} color="red" onPress={onSubmitHandler}/>
                    </ScrollView>
                    </KeyboardAvoidingView>
                 </View>       

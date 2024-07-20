@@ -3,13 +3,16 @@ import { AntDesign } from '@expo/vector-icons';
 
 import { useState } from "react";
 import * as SQLite from 'expo-sqlite';
-
+import { useTranslation } from 'react-i18next';
 
 
 export const AddNewFriendModal=(props)=>{
     const [friendName, setFriendName]=useState("");
 
     const [errors,setErrors]=useState({});
+    const {t}=useTranslation();
+    
+    
 
 
     const validateForm=()=>{
@@ -51,14 +54,14 @@ export const AddNewFriendModal=(props)=>{
             <Modal visible= {props.vis} transparent={true} animationType="slide" >
                 <View style={styles.mainContainer}>
                     <View style={styles.titleContainer}>
-                        <Text style={styles.instructionText}>Add a new friend</Text>
+                        <Text style={styles.instructionText}>{t("Addanewfriend")}</Text>
                         <Pressable onPress={props.closeModal}>
                             <Text style={styles.closeModalCross}><AntDesign name="closecircle" size={35} color="red" /></Text>
                         </Pressable>
                     </View>           
-                    <TextInput style={styles.nameInput} placeholder="Enter Name Here..." placeholderTextColor="#bbbbbb"  autoCapitalize="characters" autoCorrect={false} value={friendName} onChangeText={setFriendName}/>
+                    <TextInput style={styles.nameInput} placeholder={t("EnterNameHere")} placeholderTextColor="#bbbbbb"  autoCapitalize="characters" autoCorrect={false} value={friendName} onChangeText={setFriendName}/>
                     {errors.name?<Text style={styles.errTxt}> {errors.name}  </Text>:null}
-                    <Button title="ADD HIM/HER!" onPress={addFriendHandler}/>
+                    <Button title={t("ADDHIMORHER")+"!"} onPress={addFriendHandler}/>
 
                 </View>
             </Modal>

@@ -3,7 +3,7 @@ import { dbTableContext } from "../App";
 import { useContext, useState ,useEffect} from "react";
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5'
 import Entypo from '@expo/vector-icons/Entypo';
-
+import { useTranslation } from 'react-i18next';
 import * as SQLite from 'expo-sqlite';
 import { Borrow2 } from "../components/Borrow2";
 import { HelpPay2 } from "../components/HelpPay2";
@@ -16,6 +16,7 @@ export const FriendDetailScreen=({route})=>{
 
     const [filteredLiBorrows,setFilteredLiBorrows]=useState([]);
     const [filteredLiHelpPays,setFilteredLiHelpPays]=useState([]);
+    const {t}=useTranslation();
 
     useEffect(()=>{
         (async()=>{
@@ -53,17 +54,17 @@ export const FriendDetailScreen=({route})=>{
             <View style={styles.container}>
                 <View style={styles.infoContainer}>
                     
-                    <Text style={styles.nameTxt}>{friend.name.toUpperCase()} wants to tell you💬 </Text>
+                    <Text style={styles.nameTxt}>{friend.name.toUpperCase()} {t("wantstotellyou")}💬 </Text>
                     <View style={{flexDirection:'row',justifyContent:'space-between'}}>
                         <Text style={styles.amtTxt}>{borrowAmount>helpPayAmount?<FontAwesome5 name="angry" size={25} color="red" />:<Entypo name="emoji-happy" size={25} color="green" />}</Text> 
-                        <Text style={styles.amtTxt}>{borrowAmount>helpPayAmount?"You Owe me: ":"He/She Owes you"}</Text>
+                        <Text style={styles.amtTxt}>{borrowAmount>helpPayAmount?t("YouOweme"):t("HeOrSheOwesYou")}</Text>
                         <Text style={styles.amtTxt}>$ {Math.abs(helpPayAmount-borrowAmount)}</Text>
                     </View>
                 </View>
                 <View style={{borderBottomColor:'black',borderWidth:1,width:'100%'}}></View>
                 <View style={styles.borrowsContainer}>
                     <Text>
-                        Borrow records are shown below:
+                        {t("Borrowrecordsareshownbelow")}
                     </Text>
                     <FlatList
                     data={filteredLiBorrows}
@@ -71,13 +72,13 @@ export const FriendDetailScreen=({route})=>{
                         return <Borrow2 borrow={itemData.item}/>
                         
                     }}
-                    ListHeaderComponent={<Text style={styles.flatListHeaderFooterTxt}>-------------Start Of List-------------</Text>}
-                    ListFooterComponent={<Text style={styles.flatListHeaderFooterTxt}>-------------End Of List-------------</Text>}
-                    ListEmptyComponent={<Text style={[styles.flatListHeaderFooterTxt,{margin:10}]}>No Helping Records Found</Text>}
+                    ListHeaderComponent={<Text style={styles.flatListHeaderFooterTxt}>-------------{t('StartOfList')}-------------</Text>}
+                    ListFooterComponent={<Text style={styles.flatListHeaderFooterTxt}>-------------{t('EndOfList')}-------------</Text>}
+                    ListEmptyComponent={<Text style={[styles.flatListHeaderFooterTxt,{margin:10}]}>{t('NoRecordsFound')}</Text>}
                     />
                     <View style={styles.totalBox}>
                         <Entypo name="arrow-bold-down" size={25} color="red"/>
-                        <Text style={styles.amtTxt}> Total: </Text>
+                        <Text style={styles.amtTxt}> {t('Total')} </Text>
                         <Text style={styles.amtTxt}> ${borrowAmount}</Text>
                         
                     </View>
@@ -85,20 +86,20 @@ export const FriendDetailScreen=({route})=>{
                 <View style={{borderBottomColor:'black',borderWidth:1,width:'100%'}}></View>
                 <View style={styles.helpsContainer}>
                 <Text>
-                    Helping records are shown below:
+                {t("Helpingrecordsareshownbelow")}
                 </Text>
                 <FlatList
                 data={filteredLiHelpPays}
                 renderItem={(itemData)=>{
                     return <HelpPay2 helpPay={itemData.item}/> 
                 }}
-                ListHeaderComponent={<Text style={styles.flatListHeaderFooterTxt}>-------------Start Of List-------------</Text>}
-                ListFooterComponent={<Text style={styles.flatListHeaderFooterTxt}>-------------End Of List-------------</Text>}
-                ListEmptyComponent={<Text style={[styles.flatListHeaderFooterTxt,{margin:10}]}>No Helping Records Found</Text>}
+                ListHeaderComponent={<Text style={styles.flatListHeaderFooterTxt}>-------------{t('StartOfList')}-------------</Text>}
+                ListFooterComponent={<Text style={styles.flatListHeaderFooterTxt}>-------------{t('EndOfList')}-------------</Text>}
+                ListEmptyComponent={<Text style={[styles.flatListHeaderFooterTxt,{margin:10}]}>{t('NoRecordsFound')}</Text>}
                 />
                     <View style={styles.totalBox}>
                         <Entypo name="arrow-bold-up" size={25} color="green"/>
-                        <Text style={styles.amtTxt}>Total:</Text>
+                        <Text style={styles.amtTxt}>{t('Total')}</Text>
                         <Text style={styles.amtTxt}>${helpPayAmount}</Text>
                     </View>
 

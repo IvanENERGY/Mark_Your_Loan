@@ -1,12 +1,13 @@
 import {View , Text, StyleSheet,Platform} from "react-native"
-
+import { useTranslation } from 'react-i18next';
 
 export const FriendEmptyComponent=()=>{
+    const {t}=useTranslation();
     return(
             <View style={styles.friendEmptyComponentContainer}>
                 <Text style={styles.friendEmptyText}>
-                😢Seems you don't have any friends... {"\n"}{"\n"}
-                😃Add a new friend to start recording!
+                😢{t("Seemsyoudonthaveanyfriends")}...{"\n"}{"\n"}
+                😃{t("Addanewfriendtostartrecording")}
                 </Text>
                 
 

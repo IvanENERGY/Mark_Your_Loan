@@ -1,11 +1,12 @@
 import { StyleSheet, View,Text,Platform,Button } from "react-native";
-
+import { useTranslation } from 'react-i18next';
 export const HelpPayTotalFooter=(props)=>{
+    const {t}=useTranslation();
     return(
 
         <View style={styles.helpPayFooterContainer}>
             <View style={{flex:3}}>
-                <Text style={styles.txt}>HELPING TOTAL:</Text>
+                <Text style={styles.txt}>{t("HELPINGTOTAL")}:</Text>
             </View>
             <View style={{flex:3}}>
                 <Text style={styles.txt}>${props.amount}</Text>

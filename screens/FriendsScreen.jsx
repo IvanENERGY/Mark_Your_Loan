@@ -8,13 +8,13 @@ import { dbTableContext } from "../App";
 import { FriendTotalFooter } from "../components/FriendTotalFooter";
 import { DeleteFriendModal } from "../components/DeleteFriendModal";
 import { FriendListHeader } from "../components/FriendListHeader";
-
+import { useTranslation } from 'react-i18next';
 
 export const  FriendsScreen=({navigation})=>{
     const [isAddNewFriendModalVisible,setIsAddNewFriendModalVisible]= useState(false);
     const [liFriends,setLiFriends,liBorrows,setLiBorrows,liHelpPays,setLiHelpPays]= useContext(dbTableContext);
     const [isDeleteFriendModalVisible,setIsDeleteFriendModalVisible]=useState(false);
-
+    const {t}=useTranslation();
     useEffect(()=>{
   
         (async()=>{  
@@ -23,12 +23,12 @@ export const  FriendsScreen=({navigation})=>{
             const db =await SQLite.openDatabaseAsync('example.db');
             console.log('db',db);
 
-            let result= await db.execAsync(`
-                DROP TABLE IF EXISTS friends;
-                DROP TABLE IF EXISTS borrows;
-                DROP TABLE IF EXISTS helpPays;
-                `);
-            console.log('Dropped Table Friend',result);  
+            // let result= await db.execAsync(`
+            //     DROP TABLE IF EXISTS friends;
+            //     DROP TABLE IF EXISTS borrows;
+            //     DROP TABLE IF EXISTS helpPays;
+            //     `);
+            // console.log('Dropped Table Friend',result);  
 
             result= await db.execAsync(`
                             CREATE TABLE IF NOT EXISTS friends (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT NOT NULL);
@@ -90,17 +90,17 @@ console.log("-----------------------\n\n")
                     This is Friends Screen
                 </Text> */}
                 <View style={styles.btnContainer}>
-                    <Button title=">ADD NEW FRIENDS<" color={Platform.OS==="ios"?"#ffffff":"#000000"}   onPress={()=>setIsAddNewFriendModalVisible(true)}/>
+                    <Button title={">"+t("ADDNEWFRIENDS")+"<"} color={Platform.OS==="ios"?"#ffffff":"#000000"}   onPress={()=>setIsAddNewFriendModalVisible(true)}/>
                 </View>
                 {liFriends.length!==0?
                 <View>
                     <View style={[styles.btnContainer,{height:50}]}>
-                        <Button title=">DELETE FRIEND<" color={Platform.OS==="ios"?"#ffffff":"#000000"}   onPress={()=>setIsDeleteFriendModalVisible(true)}/>
+                        <Button title={">"+t("DELETEFRIEND")+"<"} color={Platform.OS==="ios"?"#ffffff":"#000000"}   onPress={()=>setIsDeleteFriendModalVisible(true)}/>
                     </View>
                     <Text style={styles.listGuideTxt}>
-                        Your friends are shown below:
+                        {t('Yourfriendsareshownbelow')}:
                     </Text>
-                    <Text style={{fontSize:15,textAlign:'center'}}>[You can press each one to see the borrowing and helping details]</Text>
+                    <Text style={{fontSize:15,textAlign:'center'}}>[{t('Youcanpresseachonetoseetheborrowingandhelpingdetails')}]</Text>
                 </View>
                 
                 :null}

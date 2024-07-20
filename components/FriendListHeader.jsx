@@ -3,9 +3,9 @@ import { StyleSheet, View,Text,Platform,Button } from "react-native";
 import { MaterialIcons } from '@expo/vector-icons';
 import { dbTableContext } from "../App";
 import { FontAwesome5 } from '@expo/vector-icons';
-
+import { useTranslation } from 'react-i18next';
 export const FriendListHeader=(props)=>{
-
+    const {t}=useTranslation();
     return(
 
         <View style={styles.friendFooterContainer}>
@@ -13,16 +13,16 @@ export const FriendListHeader=(props)=>{
             <View style={styles.friendContainerItem}>
             
                  
-                <Text style={styles.nameTxt}>Friend Name</Text>
+                <Text style={styles.nameTxt}>{t('FriendName')}</Text>
             </View>
             <View style={styles.friendContainerItem}>
-                   <Text style={styles.borrowAmountTxt}>You Owes Him/Her</Text>
+                   <Text style={styles.borrowAmountTxt}>{t('YouOwesHimOrHer')}</Text>
             </View>
             <View style={styles.friendContainerItem}>
-                    <Text style={styles.helpPayAmountTxt} >He/She Owes You</Text>
+                    <Text style={styles.helpPayAmountTxt} >{t('HeOrSheOwesYou')}</Text>
             </View>
             <View style={styles.friendContainerItem}>
-                   <Text style={[styles.balanceTxt]}>Balance</Text>
+                   <Text style={[styles.balanceTxt]}>{t('Balance')}</Text>
             </View>
         </View>
     )
