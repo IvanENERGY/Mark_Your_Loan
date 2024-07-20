@@ -1,13 +1,15 @@
-<h1>Notes on building android (apk/aab) on window wsl (Linux  ubuntu) LOCALLY</h1>
+<h1>&#128640;Notes on building android (apk/aab) on window wsl (Linux  ubuntu) LOCALLY</h1>
 
 <ol>
 <li>
 Follow tutorial on https://dev.to/milic128/expo-build-with-windows-10n2 
 </li>
-
-<code>wsl --install </code><br>
-<code>wsl --list --online</code><br>
-<code>wsl --install -d Ubuntu</code><br>
+Install Ubuntu on window<br>
+<pre>
+wsl --install 
+wsl --list --online
+wsl --install -d Ubuntu
+</pre>
 restart pc<br>
 open ubuntu terminal from window task bar->account creation<br>
 open ubuntu terminal in Vs code terminal<br>
