@@ -69,9 +69,8 @@ eas.json
 </pre>
 
 <li>Error fixing on <i>/mnt/c/Users/Sunday/AppData/Roaming/npm/node_modules/eas-cli/node_modules/@oclif/core/lib/command.js:41
-delete this.globalFlags?.json; This error can be solved by updating nodejs</i><li>
-
-This update nodejs ver 20  
+delete this.globalFlags?.json; This error can be solved by updating nodejs</i></li>
+Solutuib: Update nodejs ver 20
 <pre>
 sudo apt update
 sudo apt upgrade -y
