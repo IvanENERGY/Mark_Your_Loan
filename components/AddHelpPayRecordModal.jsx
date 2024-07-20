@@ -108,12 +108,12 @@ export const AddHelpPayRecordModal=(props)=>{
                         </Picker>
                         {errors.selectedFdId?<Text style={styles.errorText}>{errors.selectedFdId}</Text>:null}       
                         <Text style={styles.instructionText}><FontAwesome6 name="sack-dollar" size={20} color="black" />Amount: </Text>
-                        <TextInput style={styles.input} placeholder="Enter Amount Here..." keyboardType="decimal-pad" value={amount} onChangeText={setAmount}/>
+                        <TextInput style={styles.input} placeholder="Enter Amount Here..." placeholderTextColor="#bbbbbb"  keyboardType="decimal-pad" value={amount} onChangeText={setAmount}/>
 
                         {errors.amount?<Text style={styles.errorText}>{errors.amount}</Text>:null}        
                     <View style={{opacity:0.6}}> 
                         <Text style={styles.instructionText}>Comments: (optional) </Text>
-                        <TextInput style={[styles.input,{height:100,verticalAlign:"top"}]} placeholder={'(eg. Dinner on 18July at KFC)'}  autoCapitalize="sentences" autoCorrect={false} maxLength={50} value={comments} onChangeText={setComments} />
+                        <TextInput style={[styles.input,{height:100,verticalAlign:"top"}]} placeholder={'(eg. Dinner on 18July at KFC)'} placeholderTextColor="#bbbbbb"  autoCapitalize="sentences" autoCorrect={false} maxLength={50} value={comments} onChangeText={setComments} />
                     </View>
                     <Button title={"ADD THIS HELP-PAY RECORD!"} color="green" onPress={onSubmitHandler} /> 
                    </ScrollView>

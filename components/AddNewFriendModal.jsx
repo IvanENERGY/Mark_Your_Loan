@@ -56,7 +56,7 @@ export const AddNewFriendModal=(props)=>{
                             <Text style={styles.closeModalCross}><AntDesign name="closecircle" size={35} color="red" /></Text>
                         </Pressable>
                     </View>           
-                    <TextInput style={styles.nameInput} placeholder="Enter Name Here..."  autoCapitalize="characters" autoCorrect={false} value={friendName} onChangeText={setFriendName}/>
+                    <TextInput style={styles.nameInput} placeholder="Enter Name Here..." placeholderTextColor="#bbbbbb"  autoCapitalize="characters" autoCorrect={false} value={friendName} onChangeText={setFriendName}/>
                     {errors.name?<Text style={styles.errTxt}> {errors.name}  </Text>:null}
                     <Button title="ADD HIM/HER!" onPress={addFriendHandler}/>
 

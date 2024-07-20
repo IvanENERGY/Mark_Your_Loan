@@ -9,6 +9,16 @@
             }
         },
         "preview": {},
-        "prod": {}
+        "prod": {
+            "android": {
+                
+            },
+            "ios": {
+                "buildConfiguration": "Debug"
+            }
+
+        }
     }
-  }
+  } 
+
+ 

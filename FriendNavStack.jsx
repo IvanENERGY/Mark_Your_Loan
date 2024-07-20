@@ -24,6 +24,7 @@ export const FriendNavStack=()=>{
               //     <Entypo name="info-with-circle" size={30} color="white" />
               //   </Pressable>
               //   )
+            
             }
         }>
 

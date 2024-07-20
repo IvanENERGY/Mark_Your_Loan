@@ -1,4 +1,4 @@
-import {NavigationContainer} from '@react-navigation/native'
+import { NavigationContainer} from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Entypo from '@expo/vector-icons/Entypo'
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -7,24 +7,27 @@ import { FriendsScreen } from './screens/FriendsScreen'
 import { HelpPayScreen } from './screens/HelpPayScreen'
 import { createContext, useState } from 'react';
 import { FriendNavStack } from './FriendNavStack';
-import { Pressable, Text } from 'react-native';
-
+import { Pressable, Text, View } from 'react-native';
 
 
 const Tab= createBottomTabNavigator()
 export const dbTableContext=createContext();
 
-
+import 'react-native-reanimated'
 export default  function App(){
 
 
 const [liFriends,setLiFriends]=useState([]);
 const [liBorrows,setLiBorrows]=useState([]);
 const [liHelpPays,setLiHelpPays]=useState([]);
+
+
 return(
   <dbTableContext.Provider value={[liFriends,setLiFriends,liBorrows,setLiBorrows,liHelpPays,setLiHelpPays]}>
-  <NavigationContainer>
-  <Tab.Navigator
+  <View style={{flex:1}}>
+  <NavigationContainer >
+ 
+  <Tab.Navigator 
       screenOptions={
       {
       tabBarLabelPosition:"below-icon", //beside icon usually for tablets
@@ -47,12 +50,14 @@ return(
       //     <Entypo name="info-with-circle" size={30} color="white" />
       //   </Pressable>
       //   )
-
+      
       }
+       
     }
     // sceneContainerStyle={{backgroundColor:'#D4E7FF'}}
     initialRouteName='Friends'
     >
+      
       <Tab.Screen name="Borrow" component={BorrowScreen}  options={{
         tabBarLabel:"Borrow From Friends",
         tabBarIcon:({color})=><Entypo name="arrow-bold-down" size={24} color={color}/>,
@@ -73,10 +78,13 @@ return(
         headerTitle:"⬆️ Help Friends Pay",
         tabBarActiveTintColor:"green",
        
-      }}/>
+      }}/> 
+      
     </Tab.Navigator>
+    
   </NavigationContainer>
+ 
+  </View>
   </dbTableContext.Provider>
-
 )
 }
