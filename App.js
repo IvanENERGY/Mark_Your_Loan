@@ -1,6 +1,7 @@
 import { DarkTheme, NavigationContainer} from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Entypo from '@expo/vector-icons/Entypo'
+import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { BorrowScreen } from './screens/BorrowScreen'
 import { FriendsScreen } from './screens/FriendsScreen'
@@ -17,6 +18,7 @@ import './translation'
 import 'react-native-reanimated'
 import { useTranslation } from 'react-i18next';
 import i18n from "i18next";
+import { AppSettingModal } from './components/AppSettingModal';
 
 export default  function App(){
 
@@ -27,7 +29,7 @@ const [liHelpPays,setLiHelpPays]=useState([]);
 
 const [isEn,setIsEn]=useState(true);
 const {t}=useTranslation();
-
+const [isAppSettingVis,setIsAppSettingVis]=useState(false);
 useEffect(()=>{
   (async()=>{
     try{
@@ -63,6 +65,7 @@ return(
   <appContext.Provider value={[isEn,setIsEn]}>
 
   <View style={{flex:1}}>
+  <AppSettingModal vis={isAppSettingVis} closeModal={()=>setIsAppSettingVis(false)}/> 
   <NavigationContainer >
  
   <Tab.Navigator 
@@ -82,7 +85,13 @@ return(
         fontSize:25
       },
       headerTintColor:"white",
-     
+      headerRight:()=>
+        (
+          <View style={{marginRight:10}}>
+          <Ionicons name="settings" size={25} color="white" onPress={()=>setIsAppSettingVis(true)} />
+
+          </View>
+        )
       
       }
        
