@@ -153,6 +153,11 @@ node -v npm -v //for confirming the nodejs version
 <p>for ios, run <code>eas build --platform ios --profile dev</code> </p>
 <p>The building would be done on eas server, and result can be found at http://expo.dev</p>
 <h1>Using iOS device simulator for taking screenshots for various dimension  (MAC OS) </h1>
+<h2>Following guide are for solving issues like </h2>
+<ul>
+<li>Could not update simulator linking permissions: ENOENT: no such file or directory, open '/Users/tszfungchan/Library/Developer/CoreSimulator/Devices/ED071A39-0C39-4507-AE13-4B1236A47FE6/data/Library/Preferences/com.apple.launchservices.schemeapproval.plist'</li>
+<li>Could not see the full list of emulator</li>
+</ul>
 <p>Run<code> sudo npm install watchman</code>  (tool for watching changes in the filesystem)</p>
 <p>Run <code>sudo -s</code>  </p>
 <p>Run <code>npx expo start --ios</code> for once; that might not work</p>
