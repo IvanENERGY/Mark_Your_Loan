@@ -2,7 +2,7 @@
   "expo": {
     "name": "Mark Your Loan",
     "slug": "MarkYourLoanV1",
-    "version": "1.1.1+1",
+    "version": "1.1.1",
     "orientation": "portrait",
     "icon": "./assets/app_icon.png",
     "userInterfaceStyle": "light",

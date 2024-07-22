@@ -150,8 +150,9 @@ node -v npm -v //for confirming the nodejs version
 
 <li><code>eas build --platform android --local --profile dev</code></li>
 </ol>
-<h1>IOS Deployment</h1>
+<h1>&#128640;Notes on IOS Deployment</h1>
 <h2>app building</h2>
+<p><i><strong>	&#10071;Reminded that app version no. in app.json should be something like "1.1.1" , "1.1.1+1" is not acceptable for ios, unlike android</strong></i></p>
 <p> run <code>eas build --platform ios --profile dev</code> to build ipa</p>
 <p>The building would be done on eas server, and result can be found at http://expo.dev</p>
 <h2>Submitting app build to App Store</h2>
