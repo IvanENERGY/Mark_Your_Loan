@@ -47,7 +47,10 @@ export const FriendNavStack=()=>{
              headerTitle:`👥 ${t('MyFriends')}`,
              headerRight:()=>
               (
+                <View style={{marginRight:10}}>
                 <Ionicons name="settings" size={25} color="white" onPress={()=>setIsAppSettingVis(true)} />
+
+                </View>
               )
           }
         }
