@@ -154,8 +154,8 @@ node -v npm -v //for confirming the nodejs version
 <p>The building would be done on eas server, and result can be found at http://expo.dev</p>
 <h1>Using iOS device simulator for taking screenshots for various dimension  (MAC OS) </h1>
 <p>Run<code> sudo npm install watchman</code>  (tool for watching changes in the filesystem)</p>
-<p><code>sudo -s</code>  </p>
+<p>Run <code>sudo -s</code>  </p>
 <p>Run <code>npx expo start --ios</code> for once; that might not work</p>
-<p>exit</p>
+<p>Run <code>exit</code> </p>
 <p>Run <code>npx expo start --ios</code> again for opening the app in simulator</p>
 <p>shift + i for selecting device</p>
