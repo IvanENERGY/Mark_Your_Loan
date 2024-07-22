@@ -150,17 +150,42 @@ node -v npm -v //for confirming the nodejs version
 
 <li><code>eas build --platform android --local --profile dev</code></li>
 </ol>
-<p>for ios, run <code>eas build --platform ios --profile dev</code> </p>
+<h1>IOS Deployment</h1>
+<h2>app building</h2>
+<p> run <code>eas build --platform ios --profile dev</code> to build ipa</p>
 <p>The building would be done on eas server, and result can be found at http://expo.dev</p>
-<h1>Using iOS device simulator for taking screenshots for various dimension  (MAC OS) </h1>
-<h2>Following guide are for solving issues like </h2>
+<h2>Submitting app build to App Store</h2>
+eas.json
+<pre>
+ "submit": {
+        "production": {
+            "android": {
+
+            },
+            "ios": {
+                "appleId": "ivanchantf@gmail.com",
+                "ascAppId": "6566179309",
+                "appleTeamId": "96U5KK66PP"
+            }
+        }
+    }
+</pre>
+<p> run <code>eas submit --platform ios  </code> </p>
+<h2>Using iOS device simulator for taking screenshots for various dimension  (MAC OS) </h2>
+<ol>
+<li>Open the project folder</li>
+<li>Run <code>sudo npx expo start --ios</code></li>
+</ol>
+<h3>Following guide are for solving issues like </h3>
 <ul>
 <li>Could not update simulator linking permissions: ENOENT: no such file or directory, open '/Users/tszfungchan/Library/Developer/CoreSimulator/Devices/ED071A39-0C39-4507-AE13-4B1236A47FE6/data/Library/Preferences/com.apple.launchservices.schemeapproval.plist'</li>
 <li>Could not see the full list of emulator</li>
 </ul>
-<p>Run<code> sudo npm install watchman</code>  (tool for watching changes in the filesystem)</p>
-<p>Run <code>sudo -s</code>  </p>
-<p>Run <code>npx expo start --ios</code> for once; that might not work</p>
-<p>Run <code>exit</code> </p>
-<p>Run <code>npx expo start --ios</code> again for opening the app in simulator</p>
-<p>shift + i for selecting device</p>
+<ol>
+<li>Run<code> sudo npm install watchman</code>  (tool for watching changes in the filesystem)</li>
+<li>Run <code>sudo -s</code>  </li>
+<li>Run <code>npx expo start --ios</code> for once; that might not work</li>
+<li>Run <code>exit</code></li>
+<li>Run <code>npx expo start --ios</code> again for opening the app in simulator</li>
+<li>shift + i for selecting device</li>
+</ol>

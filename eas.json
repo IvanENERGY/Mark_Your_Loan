@@ -14,9 +14,22 @@
                 
             },
             "ios": {
-                "buildConfiguration": "Debug"
+              
             }
 
+        }
+    },
+    "submit": {
+        "production": {
+            "android": {
+
+            },
+            "ios": {
+                "appleId": "ivanchantf@gmail.com",
+                "ascAppId": "6566179309",
+                "appleTeamId": "96U5KK66PP",
+                "sku":"MarkYourLoan"
+            }
         }
     }
   } 
