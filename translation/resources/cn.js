@@ -20,6 +20,7 @@ export default {
     Addanewfriend:"新增一個朋友",
     EnterNameHere:"這裡輸入名稱...",
     ADDHIMORHER:"新增他/她",
+    ErrorPleaseenterafriendname:"錯誤: 名稱不能空白",
     //deletefriendmodal
     Whodoyouwanttodelete:"你想刪掉哪一個朋友?",
     DELETESELECTEDFRIEND:"刪除已選擇朋友", 

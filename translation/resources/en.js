@@ -23,6 +23,7 @@ export default {
     Addanewfriend:"Add a new friend",
     EnterNameHere:"Enter Name Here...",
     ADDHIMORHER:"ADD HIM/HER",
+    ErrorPleaseenterafriendname:"Error: Please enter a friend name",
     //deletefriendmodal
     Whodoyouwanttodelete:"Who do you want to delete?",
     DELETESELECTEDFRIEND:"DELETE SELECTED FRIEND",

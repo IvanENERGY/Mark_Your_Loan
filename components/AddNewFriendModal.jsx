@@ -19,7 +19,7 @@ export const AddNewFriendModal=(props)=>{
         let err={};
         if(friendName===""){
             
-            err.name="Error: Please enter a friend name";
+            err.name=t('ErrorPleaseenterafriendname');
             setErrors(err);
         }
         return Object.keys(err).length===0;

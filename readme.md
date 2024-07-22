@@ -53,31 +53,33 @@ This application is avaliable on <a href="">Google Play Store</a> and <a href=""
 
 
 <img src="https://github.com/user-attachments/assets/afc93d64-b401-4848-898b-e7c80103e64d"/>
+
 <h1>&#128640;Notes on building android (apk/aab) on window wsl (Linux  ubuntu) LOCALLY</h1>
 
 <ol>
 <li>
 Follow tutorial on https://dev.to/milic128/expo-build-with-windows-10n2 
 </li>
-Install Ubuntu on window<br>
+<ul>
+<li>Install Ubuntu on window</li><br>
 <pre>
 wsl --install 
 wsl --list --online
 wsl --install -d Ubuntu
 </pre>
-restart pc<br>
-open ubuntu terminal from window task bar->account creation<br>
-open ubuntu terminal in Vs code terminal<br>
-Install OpenJDK you can set the version that you want, in my case I used version 17:
+<li>restart pc</li><br>
+<li>open ubuntu terminal from window task bar->account creation</li><br>
+<li>open ubuntu terminal in Vs code terminal</li><br>
+<li>Install OpenJDK you can set the version that you want, in my case I used version 17:</li>
 <pre>
 sudo apt update
 sudo apt install openjdk-17-jdk-headless gradle
 </pre>
-set path to JAVA_HOME
+<li>set path to JAVA_HOME</li>
 <pre>
 export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 </pre>
-Install Android command-line tools:
+<li>Install Android command-line tools:</li>
 <pre>
 cd ~
 curl https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip -o /tmp/cmd-tools.zip
@@ -86,20 +88,20 @@ unzip -q -d android/cmdline-tools /tmp/cmd-tools.zip
 mv android/cmdline-tools/cmdline-tools android/cmdline-tools/latest
 rm /tmp/cmd-tools.zip
 </pre>
-Set correct path for variables:
+<li>Set correct path for variables:</li>
 <pre>
 export ANDROID_HOME=$HOME/android
 export ANDROID_SDK_ROOT=${ANDROID_HOME}
 export PATH=${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${PATH}
 </pre>
-Accepting SDK licenses:
+<li>Accepting SDK licenses:</li>
 <code>yes | sdkmanager --licenses</code><br>
-Installing SDK components (set correct android versions):
+<li>Installing SDK components (set correct android versions):</li>
 <code>sdkmanager --update</code><br>
 <code>sdkmanager "platforms;android-33" "build-tools;33.0.0"</code><br>
 
 
-Try <code> eas login</code>, add the <code>eas.json</code> file then building using  <code>eas build --platform android --profile dev --local</code><br>
+<li>Try <code> eas login</code>, add the <code>eas.json</code> file then building using  <code>eas build --platform android --profile dev --local</code></li><br>
 eas.json
 <pre>
 {
@@ -124,10 +126,10 @@ eas.json
     }
 } 
 </pre>
-
-<li>Error fixing on <i>/mnt/c/Users/Sunday/AppData/Roaming/npm/node_modules/eas-cli/node_modules/@oclif/core/lib/command.js:41
+</ul>
+<li>&#65039;Error fixing on <i>/mnt/c/Users/Sunday/AppData/Roaming/npm/node_modules/eas-cli/node_modules/@oclif/core/lib/command.js:41
 delete this.globalFlags?.json; This error can be solved by updating nodejs</i></li>
-Solution: Update nodejs ver 20
+&#9989;Solution: Update nodejs ver 20
 <pre>
 sudo apt update
 sudo apt upgrade -y
@@ -143,10 +145,10 @@ node -v npm -v //for confirming the nodejs version
 
 -npm install -g npm@latest expo@latest eas-cli@latest
 
-<i>Sometimes failed and say SDK not found, just go root and reset android_home variable</i>
+<i>&#65039;Sometimes failed and say SDK not found, just go root and reset android_home variable</i>
 
-<li>Remove all node modules download in window (window should ask for permission by popup), do npm install using ubuntu, </li>
-
+<li>Remove all node modules download in window (window should ask for permission by popup), do npm install using ubuntu </li>
+<p><i>&#65039;If fails, check whether dependencies crash each other shown in red text when building (eg.expo-cli is included in expo)</i></p>
 
 <li><code>eas build --platform android --local --profile dev</code></li>
 </ol>

@@ -32,10 +32,10 @@ export const AddBorrowRecordModal=(props)=>{
     const validateForm=()=>{    
         let err={};
         if(amount===''){
-            err.amount='Error: Amount cannot be empty.';
+            err.amount=t("ErrorAmountcannotbeempty");
         }
         if(selectedFdId===''){
-            err.selectedFdId='Error: Add a friend from the main page First.';
+            err.selectedFdId=t("ErrorAddafriendfromthemainpagefirst");
         }
         setErrors(err);
 
