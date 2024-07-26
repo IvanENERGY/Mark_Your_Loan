@@ -6,7 +6,7 @@ This application is avaliable on <a href="">Google Play Store</a> and <a href=""
 <img src="https://github.com/user-attachments/assets/925b72a1-bd33-46c7-9294-2579ea77c3ee"/>
 
 <p>[screenshots/project_mark_your_loan.png]</p>
-<img src="https://github.com/user-attachments/assets/8eb4ef84-8543-4788-8126-5daef19d6019"/>
+<img src="https://github.com/user-attachments/assets/b13ece6e-11a4-499a-824f-5a03bb639bdd"/>
 
 <p>Mark Your Loan is an application which allows users to record the amount they borrow from friends and the amount they help friends to pay. </p>
 <p>The application is simple and easy to use,  users can insert borrowing records and helping records, view the list of records at anytime. They can also select a specific friends to see the records related to that friend. </p>
