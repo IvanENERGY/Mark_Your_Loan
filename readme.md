@@ -1,8 +1,10 @@
 <h1>Repo Introduction</h1>
 This application is avaliable on <a href="https://play.google.com/store/apps/details?id=com.ivanchantf.MarkYourLoan">Google Play Store</a> 
+
+<p>[screenshots/get_it_on_play_badge.png]</p>
+<a href="https://play.google.com/store/apps/details?id=com.ivanchantf.MarkYourLoan"><img src="https://github.com/user-attachments/assets/8bf90edc-ac37-48ec-b412-4959b8bd9063"/></a> 
+
 <p>[screenshots/play/feature_graphics.png]</p>
-
-
 <img src="https://github.com/user-attachments/assets/925b72a1-bd33-46c7-9294-2579ea77c3ee"/>
 
 <p>[screenshots/project_mark_your_loan.png]</p>
