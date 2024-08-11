@@ -1,5 +1,5 @@
 <h1>Repo Introduction</h1>
-This application is avaliable on <a href="">Google Play Store</a> and <a href="">App Store</a>
+This application is avaliable on <a href="https://play.google.com/store/apps/details?id=com.ivanchantf.MarkYourLoan">Google Play Store</a> 
 <p>[screenshots/play/feature_graphics.png]</p>
 
 
@@ -9,7 +9,7 @@ This application is avaliable on <a href="">Google Play Store</a> and <a href=""
 <img src="https://github.com/user-attachments/assets/b13ece6e-11a4-499a-824f-5a03bb639bdd"/>
 
 <p>Mark Your Loan is an application which allows users to record the amount they borrow from friends and the amount they help friends to pay. </p>
-<p>The application is simple and easy to use,  users can insert borrowing records and helping records, view the list of records at anytime. They can also select a specific friends to see the records related to that friend. </p>
+<p>The application is simple and easy to use,  users can insert borrowing records and helping records, view the list of records at anytime. They can also select a specific friend to see the records related to that friend. </p>
 <p>The application supports English and Chinese.</p>
 <p>**Network not required</p>
 <p>**All data are stored in your phone local storage, no data would be exposed to the network.</p>
