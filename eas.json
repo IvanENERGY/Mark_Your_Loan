@@ -2,7 +2,7 @@
     "build": {
         "dev": {
             "android": {
-                "buildType": "apk"
+                "buildType": "app-bundle"
             },
             "ios": {
                 "buildConfiguration": "Debug"
